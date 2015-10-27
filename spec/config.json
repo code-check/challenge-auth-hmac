@@ -7,7 +7,7 @@
     },
     "host": "localhost:9000",
     "endpoints": {
-        "challenge": "/api/challenge/"
+        "challenge": "/api/challenges/"
     },
     "secret":  "challenge-database-api"
 }
