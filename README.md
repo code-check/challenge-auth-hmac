@@ -16,12 +16,12 @@ The API will have 4 options for managing challenges;
 To protect against any unauthorized access, all endpoints will be protected with HMAC authorisation of which the secret (key) will be "challenge-database-api"
 
 ## Specifications
- - All API endpoints will be the following: "/api/challenge/[Id]", where [Id] is optional
+ - All API endpoints will be the following: "/api/challenges/[Id]", where [Id] is optional
  - The database used should be SQLite, the file should be [database.db](./sql/database.db)
  - Any data in the body, either request or response, should be JSON
  - The hash that should be used for the HMAC authentication is SHA256 
  - In the case of an invalid HMAC digests there should be a 401 Unauthorized returned
- - The HMAC message should be the endpoint combined with the HTTP verb (GET/POST/PUT/DELETE) seperated by a semicolon(;) e.g. "/api/challenge/;GET"
+ - The HMAC message should be the endpoint combined with the HTTP verb (GET/POST/PUT/DELETE) seperated by a semicolon(;) e.g. "/api/challenges/;GET"
 
 Other specifications can be found in JS format under the [spec](./spec) folder
 
