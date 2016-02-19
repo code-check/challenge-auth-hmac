@@ -9,5 +9,8 @@
     "test": "mocha spec",
     "allowNewFile": true,
     "tags": [
-        ]
+        "WebAPI",
+        "SQLite",
+        "Database"
+    ]
 }
