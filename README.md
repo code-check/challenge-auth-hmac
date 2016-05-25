@@ -11,9 +11,9 @@ The database only contains one table called `challenges`, which consists of foll
 
 Endpoint to implement [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) api is `/api/challenges/:itemId`.
  - **GET:** Get challenge with Id: itemId
- - **PUT:** Updates a challenge with Id: itemId
- - **POST:** Creates a new challenge and returns its Id
- - **DELETE:** Deletes challenge with Id: itemId
+ - **PUT:** Update challenge with Id: itemId
+ - **POST:** Create a new challenge and return its Id
+ - **DELETE:** Delete challenge with Id: itemId
  
 *To protect against any unauthorized access, all endpoints will be protected with `HMAC authorization` with secret key as `challenge-database-api`.*
 
@@ -33,6 +33,25 @@ Endpoint to implement [REST](https://en.wikipedia.org/wiki/Representational_stat
 - You can refer [config.json](spec/config.json) for configuration used in [tests](spec/challenge.spec.js).
 - The database used should be SQLite, the file should be [database.db](./sql/database.db).
 - Any data in the body, either request or response, should be `JSON`.
+
+## Run Test
+- Run `codecheck` command in terminal if implementing challenge locally or click on `RUN` button if implementing in web editor.
+- You need to edit [codecehck.yml](codecheck.yml) file by adding following `Web` command to run tests without running server externally.
+```
+web:
+  command: command to run server
+  port: 3000
+  console: true
+```
+If you are solving challenge in Node.js and your server is in the root folder as `app.js` write `node app.js` to run server in `command`. So your [codecheck.yml](codecheck.yml) file will be
+```
+build: npm install
+web:
+  command: node app.js
+  port: 3000
+  console: true
+test: mocha spec --recursive
+```
 
 ### Test Results *before* solving the challenge  
 ```
