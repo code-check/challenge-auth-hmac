@@ -1,17 +1,19 @@
 {
-    "editable": [
-        "Answer.md"
-    ],
-    "excludes": [ 
-        ".gitignore",
-        "challenge.json"
-    ],
-    "test": "mocha spec",
-    "allowNewFile": true,
     "tags": [
         "AnyLanguage",
         "WebAPI",
         "SQLite",
         "Database"
-    ]
+    ],
+    "editable": [
+        "answer.md",
+        ".gitignore",
+        "package.json",
+        "codecheck.yml"
+    ],
+    "excludes": [ 
+        "challenge.json"
+    ],
+    "allowNewFile": true,
+    "test": "mocha spec"
 }
