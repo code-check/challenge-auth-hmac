@@ -1,8 +1,10 @@
 ﻿var restify = require("restify"),
     secret = "challenge-database-api",
+    algorithm = 'sha256',
     server = restify.createServer(),
     endpoint = "/api/challenges/:itemId",
-    db = require("./database.js");
+    db = require("./database.js"),
+    crypto = require("crypto");
 
 server.use(restify.bodyParser());
 
@@ -14,7 +16,8 @@ server.get(endpoint, restify.queryParser(), gets);
 server.listen(9000);
 
 function put(req, res, next) {
-    var hmac = require('crypto').createHmac("sha256", secret),
+    var 
+        hmac = crypto.createHmac(algorithm, secret),
         data = req.body,
         digest = hmac.update("/api/challenges/;PUT").digest("hex"),
         itemId = req.params.itemId;
@@ -43,7 +46,8 @@ function put(req, res, next) {
 }
 
 function post(req, res, next) {
-    var hmac = require('crypto').createHmac("sha256", secret),
+    var 
+        hmac = crypto.createHmac(algorithm, secret),
         data = req.body,
         digest = hmac.update("/api/challenges/;POST").digest("hex");
     
@@ -69,7 +73,8 @@ function post(req, res, next) {
 }
 
 function del(req, res, next) {
-    var hmac = require('crypto').createHmac("sha256", secret),
+    var 
+        hmac = crypto.createHmac(algorithm, secret),
         data = req.body,
         digest = hmac.update("/api/challenges/;DELETE").digest("hex"),
         itemId = req.params.itemId;
@@ -89,7 +94,8 @@ function del(req, res, next) {
 }
 
 function gets(req, res, next) {
-    var hmac = require('crypto').createHmac("sha256", secret),
+    var 
+        hmac = crypto.createHmac(algorithm, secret),
         data = req.query,
         digest = hmac.update("/api/challenges/;GET").digest("hex"),
         itemId = req.params.itemId;
